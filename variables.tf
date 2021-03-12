@@ -60,7 +60,7 @@ variable "p2p_port" {
 
 variable "volume_size" {
   type        = number
-  default     = 1000
+  default     = 30
   description = "Size of EBS volume for node. See https://ethereum.org/en/developers/docs/nodes-and-clients/#requirements for more information"
 }
 

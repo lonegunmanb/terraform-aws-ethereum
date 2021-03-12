@@ -1,43 +1,30 @@
-# terraform-aws-ethereum
-
-Deploy an Ethereum node on AWS using ECS.
+# Complete Example
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
 
-| Name | Version |
-|------|---------|
-| aws | ~> 3.0 |
+No requirements.
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| aws | ~> 3.0 |
+| aws | n/a |
 
 ## Modules
 
 | Name | Source | Version |
 |------|--------|---------|
-| autoscale_group | git::https://github.com/cloudposse/terraform-aws-ec2-autoscale-group.git?ref=0.7.4 |  |
+| ethereum_node | ../../ |  |
+| subnets | git::https://github.com/cloudposse/terraform-aws-dynamic-subnets.git?ref=0.32.1 |  |
 | this | cloudposse/label/null | 0.22.0 |
+| vpc | git::https://github.com/cloudposse/terraform-aws-vpc.git?ref=0.18.1 |  |
 
 ## Resources
 
 | Name |
 |------|
-| [aws_ami](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ami) |
-| [aws_cloudwatch_log_group](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_log_group) |
-| [aws_ecs_cluster](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecs_cluster) |
-| [aws_ecs_service](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecs_service) |
-| [aws_ecs_task_definition](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecs_task_definition) |
-| [aws_iam_instance_profile](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_instance_profile) |
-| [aws_iam_policy_document](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document) |
-| [aws_iam_role](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role) |
-| [aws_iam_role_policy_attachment](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role_policy_attachment) |
-| [aws_region](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/region) |
-| [aws_security_group](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group) |
-| [aws_security_group_rule](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group_rule) |
+| [aws_availability_zones](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/availability_zones) |
 
 ## Inputs
 
@@ -49,28 +36,20 @@ Deploy an Ethereum node on AWS using ECS.
 | delimiter | Delimiter to be used between `namespace`, `environment`, `stage`, `name` and `attributes`.<br>Defaults to `-` (hyphen). Set to `""` to use no delimiter at all. | `string` | `null` | no |
 | enabled | Set to false to prevent the module from creating any resources | `bool` | `null` | no |
 | environment | Environment, e.g. 'uw2', 'us-west-2', OR 'prod', 'staging', 'dev', 'UAT' | `string` | `null` | no |
-| http\_api\_enabled | Set to `false` to disable the HTTP JSON RPC API | `bool` | `true` | no |
-| http\_api\_port | Port to use for HTTP JSON RPC API | `number` | `8545` | no |
 | id\_length\_limit | Limit `id` to this many characters.<br>Set to `0` for unlimited length.<br>Set to `null` for default, which is `0`.<br>Does not affect `id_full`. | `number` | `null` | no |
-| image | Name of image to use in container definition | `string` | `"ethereum/client-go:stable"` | no |
-| instance\_type | Instance type of node. See https://ethereum.org/en/developers/docs/nodes-and-clients/#requirements for more informations | `string` | `"t2.xlarge"` | no |
 | label\_order | The naming order of the id output and Name tag.<br>Defaults to ["namespace", "environment", "stage", "name", "attributes"].<br>You can omit any of the 5 elements, but at least one must be present. | `list(string)` | `null` | no |
 | name | Solution name, e.g. 'app' or 'jenkins' | `string` | `null` | no |
 | namespace | Namespace, which could be your organization name or abbreviation, e.g. 'eg' or 'cp' | `string` | `null` | no |
-| p2p\_enabled | Set to `false` to disable P2P discovery | `bool` | `true` | no |
-| p2p\_port | Port to use for P2P discovery | `number` | `30303` | no |
 | regex\_replace\_chars | Regex to replace chars with empty string in `namespace`, `environment`, `stage` and `name`.<br>If not set, `"/[^a-zA-Z0-9-]/"` is used to remove all characters other than hyphens, letters and digits. | `string` | `null` | no |
 | stage | Stage, e.g. 'prod', 'staging', 'dev', OR 'source', 'build', 'test', 'deploy', 'release' | `string` | `null` | no |
-| subnet\_ids | List of Subnet IDs to place resources in | `list(string)` | n/a | yes |
 | tags | Additional tags (e.g. `map('BusinessUnit','XYZ')` | `map(string)` | `{}` | no |
-| volume\_size | Size of EBS volume for node. See https://ethereum.org/en/developers/docs/nodes-and-clients/#requirements for more information | `number` | `30` | no |
-| vpc\_id | ID of VPC to place resources in | `string` | n/a | yes |
-| ws\_api\_enabled | Set to `false` to disable the WebSocket JSON RPC API | `bool` | `true` | no |
-| ws\_api\_port | Port to use for WebSocket JSON RPC API | `number` | `8546` | no |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
 | cluster\_id | n/a |
+| private\_subnet\_ids | n/a |
+| public\_subnet\_ids | n/a |
+| vpc\_id | n/a |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

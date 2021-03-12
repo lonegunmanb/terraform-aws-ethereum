@@ -18,7 +18,7 @@ module "subnets" {
   nat_gateway_enabled = true
 }
 
-module "geth_node" {
+module "ethereum_node" {
   source  = "../../"
   context = module.this.context
 

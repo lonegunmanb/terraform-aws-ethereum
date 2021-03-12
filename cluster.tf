@@ -28,8 +28,8 @@ resource "aws_ecs_task_definition" "this" {
   network_mode             = "host"
 
   volume {
-    name      = "gethvol"
-    host_path = "/home/ec2-user/.gethgoerli"
+    name      = "data"
+    host_path = "/srv/ethereum"
   }
 
   tags = module.this.tags

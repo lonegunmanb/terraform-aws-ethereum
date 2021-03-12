@@ -1,1 +1,1 @@
-name = "geth"
+name = "ethereum-complete-example"

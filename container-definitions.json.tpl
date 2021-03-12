@@ -7,7 +7,7 @@
         "mountPoints": [
             {
                 "containerPath": "/data",
-                "sourceVolume": "gethvol"
+                "sourceVolume": "data"
             }
         ],
         "logConfiguration": {

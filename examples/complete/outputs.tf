@@ -13,5 +13,5 @@ output "private_subnet_ids" {
 ## module outputs
 
 output "cluster_id" {
-  value = module.geth_node.cluster_id
+  value = module.ethereum_node.cluster_id
 }
