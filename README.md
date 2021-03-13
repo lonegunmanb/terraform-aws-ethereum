@@ -19,7 +19,7 @@ Deploy an Ethereum node on AWS using ECS.
 
 | Name | Source | Version |
 |------|--------|---------|
-| autoscale_group | git::https://github.com/cloudposse/terraform-aws-ec2-autoscale-group.git?ref=0.7.4 |  |
+| autoscale_group | git::https://github.com/cloudposse/terraform-aws-ec2-autoscale-group.git?ref=0.16.0 |  |
 | this | cloudposse/label/null | 0.22.0 |
 
 ## Resources

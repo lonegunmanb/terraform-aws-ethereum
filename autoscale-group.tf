@@ -68,7 +68,7 @@ locals {
 }
 
 module "autoscale_group" {
-  source  = "git::https://github.com/cloudposse/terraform-aws-ec2-autoscale-group.git?ref=0.7.4"
+  source  = "git::https://github.com/cloudposse/terraform-aws-ec2-autoscale-group.git?ref=0.16.0"
   context = module.this.context
 
   subnet_ids = var.subnet_ids
