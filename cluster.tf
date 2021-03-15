@@ -28,8 +28,7 @@ resource "aws_ecs_task_definition" "this" {
   network_mode             = "host"
 
   volume {
-    name      = "data"
-    host_path = "/srv/ethereum"
+    name = "data"
   }
 
   tags = module.this.tags
